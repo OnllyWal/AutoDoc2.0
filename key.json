@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "snappy-rainfall-487116-s3",
+  "private_key_id": "1fe5ff28035c1c36338722ac6142d748ee686897",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDPDHL/IdDuig98\niVKrEHXSyYGNW2jlNMX23oS+CS3yGvnBtTZMmudUC8XxU9w1b544lgocyMPtNDvw\n2LGHeMbQJtSbI8zpJjMrE3isiQoo0Swkw7ulOcLGflTW6N2Szvdqo8F96OztXln/\nB5EbFrq1xy37jo0sxki/j7iqzp4tRWLdxoeXvhkNV0mo47Zpr/4g6H3lK59TM9jN\nRMIU7U9IR3Gn14oWNEXBe1UT16tUcTAadjN3TmlxisLWwOBlMX3eOfX5biJN3D9d\nH+FMDbkewVIE6ZzRup6RTD5sX4odLzU6ggeTM+BTYaAFeKoXS3kjdWFIzEebYVIW\nhQ2PTiBNAgMBAAECggEAARlHuw8LPjcxeaRezlFQhDwwgEQ27Ufw546/GGLRQFoT\nbOCiIY0bX6AhcWdFpQeneBn6xUuvkFc8AE8UJxC3OlfoL/IrYojge1wRC/neTzPA\n5L7LIR8kbqmxUM5jm3Fdv6FWyJfC2xPhAErPYsHxe3g68tKNYtnb0qh+4WkYH0I9\nydGOYyUUiAQR/4txILKAvnqO3OhpFw9GXGRzC54FZtiSzL7lE0dMUtX/SNVi0obX\nzWk4XQFmzrPC8Y9fr8yyblvzgz1Z9hXCKkn1i/yt3u5v5BS9fkEyZU6kS1ajzN9/\n8ltSU7DPzkBIW6IC8bhYhDcix0K5EpHaj3E8g8ENOQKBgQD1Y0wnMxDUgKI/12Hl\n4HqwLeZE8bO0o+gZXJFY4Y5k2U6WzxAtV0HHexJ3FscxcM2NYsLgg8aQb16w/MoN\nUgOFtvAMsO4ynR1f+8QIPyJM0BqnkTp1jE+5hQ7ZcNK5xbZYLzm1IFR7/Hcbv+y1\nYszVsXlFb4oZaqD6Esd9sWL0hQKBgQDYALIgWyUzjIs1IqZVxgXdEAurZyVJQl3R\n4f4ik4YT5SNwu1sUILbni5OZzPGKk55Sk7mR1E3o6+OUud4iUJJBHuBWO526r0uz\n6OW0b5YDO1j7ridoS6nzZ77WExCIJ7unCnHBTwlWdSc0QfLh71MYxzXnFynZU1OW\nV98nTypLKQKBgAsTVkaWqXXN8ITNJeAIR8FX8QK/ngrTMxCh+vV2CMVIgaGQ6vwA\n6jkktuqlHox+uOhewsj7aaTvQejfIAeF4h7Q6PjJq5ahPMguRuTQZK3u3qUdivPv\nR1HqTYdG7lvwLpDAYOxp7yZBeObJvNdbBD/I6N5XcHZBN87RtitYLE05AoGAV4JY\nqAElHjBHSZyjFMboIzpX7/YWxgpMJjbPlcR8olzHselFqe7jCwWiI8JC7SiHEN9m\nY+1GLyI6DkwK8Y4A4r8WlfkLGtHf8qBdR2+Zr++ASl6w+nEFBma2itYocXDfdnol\nwfI6TzuhSWuacexalwRGEzxwKOq4R4WME8nf0ZkCgYEAuAXKmizJHlBU7CbyL+CX\n5lLiwLHiixvujzFhWvpb2E1KxhRW64/2IIfMf+gLAu9jJaSVY5PVT98AGlJ2o6qv\npr+pEFE+jKVnlQ6kRwGJzVzfEihT+BEyulyZ70EGrYWzhwLU2Xu6h4KaL1Mlb+jx\n2JmQD2w9yvI+KC3JlpqTVsU=\n-----END PRIVATE KEY-----\n",
+  "client_email": "autodoc@snappy-rainfall-487116-s3.iam.gserviceaccount.com",
+  "client_id": "103564928318316698705",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/autodoc%40snappy-rainfall-487116-s3.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
