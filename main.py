@@ -2,15 +2,18 @@ from google.oauth2 import service_account
 from googleapiclient.discovery import build
 import pandas as pd
 import os
+import shutil
 from docx import Document
 from datetime import datetime
-from documentController import safe_get, start_doc_process_from_row
-import json
+from documentController import safe_get, start_doc_process_from_row, process_documents
+from emailController import EmailSender, create_email
+import time
 
 # =========================
 # CONFIGURAÇÕES GOOGLE
 # =========================
 
+SERVICE_ACCOUNT_FILE = 'key.json'
 
 SCOPES = [
     'https://www.googleapis.com/auth/spreadsheets',
@@ -20,16 +23,19 @@ SCOPES = [
 SPREADSHEET_ID = '1FU4nVHzOupO8fhV1jqA7JswZoOE8OfJ444bNb7jZFCo'
 RANGE_NAME = 'dados'
 
+COORDENADOR = "walcandeia@gmail.com"
+
+OUTPUT_PATH = "/home/wal/AutoDoc2.0/output"
 # =========================
 # EXECUÇÃO PRINCIPAL
 # =========================
 
 def main():
+    sender = EmailSender()
+    sender.connect()
 
-    creds_info = json.loads(os.environ["GOOGLE_CREDENTIALS"])
-
-    creds = service_account.Credentials.from_service_account_info(
-        creds_info, scopes=SCOPES
+    creds = service_account.Credentials.from_service_account_file(
+        SERVICE_ACCOUNT_FILE, scopes=SCOPES
     )
 
     service = build('sheets', 'v4', credentials=creds)
@@ -70,7 +76,14 @@ def main():
 
         print(f"Processando: {safe_get(row, 'Nome Completo do Aluno')}")
 
-        docs = start_doc_process_from_row(row)
+        word_dict = start_doc_process_from_row(row)
+        attachments = process_documents(word_dict)
+
+        email_data = create_email(word_dict)
+        email_data.attachments = attachments
+
+        sender.send_email(email_data, COORDENADOR)
+        sender.send_email(email_data, word_dict.get("destino"))
 
         # Atualiza status na planilha
         sheet_row_number = idx + 2  # +2 porque:
@@ -90,6 +103,31 @@ def main():
 
         print("✔ Marcado como PROCESSADO\n")
 
+        if not os.path.isdir(OUTPUT_PATH):
+            print("Pasta não encontrada.")
+            return False
+
+        for item in os.listdir(OUTPUT_PATH):
+            item_path = os.path.join(OUTPUT_PATH, item)
+
+            try:
+                if os.path.isfile(item_path) or os.path.islink(item_path):
+                    os.remove(item_path)  # remove arquivo
+                elif os.path.isdir(item_path):
+                    shutil.rmtree(item_path)  # remove subpasta inteira
+            except Exception as e:
+                print(f"Erro ao remover {item_path}: {e}")
+
+        print("Pasta esvaziada com sucesso.")
+        return True
 
 if __name__ == "__main__":
-    main()
+    while True:
+        try:
+            print("Verificando Formulários...")
+            main()
+        except Exception as e:
+            print("Erro:", e)
+        
+        time.sleep(60)
+
