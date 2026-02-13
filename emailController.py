@@ -31,7 +31,7 @@ def create_email(dados: dict):
         sender_name="AutoDoc",
         complete_name="AutoDoc PPCOMP",
         email_name="maquinas902@gmail.com",
-        subject= f"Documentos de Defesa {dados.get("nome_completo_aluno")}",
+        subject= f"Documentos de Defesa {dados.get('nome_completo_aluno')}",
         body= f"Documentos criados de forma autônoma pelo AutoDoc",
     )
 
@@ -82,3 +82,4 @@ class EmailSender:
         '''Desconecta do servidor SMTP.'''
         if self.connection:
             self.connection.quit()
+
