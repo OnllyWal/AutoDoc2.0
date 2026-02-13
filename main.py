@@ -5,12 +5,12 @@ import os
 from docx import Document
 from datetime import datetime
 from documentController import safe_get, start_doc_process_from_row
+import json
 
 # =========================
 # CONFIGURAÇÕES GOOGLE
 # =========================
 
-SERVICE_ACCOUNT_FILE = 'key.json'
 
 SCOPES = [
     'https://www.googleapis.com/auth/spreadsheets',
@@ -26,8 +26,10 @@ RANGE_NAME = 'dados'
 
 def main():
 
-    creds = service_account.Credentials.from_service_account_file(
-        SERVICE_ACCOUNT_FILE, scopes=SCOPES
+    creds_info = json.loads(os.environ["GOOGLE_CREDENTIALS"])
+
+    creds = service_account.Credentials.from_service_account_info(
+        creds_info, scopes=SCOPES
     )
 
     service = build('sheets', 'v4', credentials=creds)
